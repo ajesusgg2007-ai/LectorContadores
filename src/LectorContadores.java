@@ -29,8 +29,20 @@ public class LectorContadores {
 
         private static int cargarAntiguosregistros(File data,List<RegistroLectura> lista)
         {
-            if(!data.exists()||data.length()==0)
-            return 0;
-            return 0;
+           int total=0;
+            if(!data.exists()||data.length()==0){
+                try(DataInputStream dis=new DataInputStream(new FileInputStream(data))){
+                    while (true){
+                        int contador= dis.readInt();
+                        long fecha=dis.readLong();
+                        double valor =dis.readDouble();
+                        String text= dis.readUTF();
+                        total++;
+                    }
+                }catch (IOException e) {
+
+                }
+            }
+            return total;
         }
     }
