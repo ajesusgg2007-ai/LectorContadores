@@ -14,4 +14,15 @@ public class RegistroLectura {
         this.lectura=lectura;
         this.abonado=abonado;
     }
+
+    @Override
+    public String toString() {
+        return "RegistroLectura{" +
+                "contadorNum=" + contadorNum +
+                ", contadorPadded='" + contadorPadded + '\'' +
+                ", fecha=" + fecha +
+                ", lectura=" + lectura +
+                ", abonado='" + abonado + '\'' +
+                '}';
+    }
 }
