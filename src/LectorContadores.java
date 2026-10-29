@@ -73,7 +73,14 @@ public class LectorContadores {
         }
 
         //Añadir las lecturas válidas a lecturas.dat
-        //SIGUE AQUI
+        if(!lecturasNuevasValidas.isEmpty())
+        {
+            cargarAntiguosregistros(lecturas,lecturasNuevasValidas);
+            registros.addAll(lecturasNuevasValidas);
+        }
+
+        //Resumen.txt
+        generarResumenTxt(resumen,registros);
     }
 
         private static int cargarAntiguosregistros (File data, List < RegistroLectura > lista)
@@ -130,7 +137,7 @@ public class LectorContadores {
                 return "Lectura inválida";
             }
 
-            return null;
+            return null;//Significa que está bien
 
         }
 
@@ -162,4 +169,5 @@ public class LectorContadores {
                 return false;
             }
         }
+
     }
